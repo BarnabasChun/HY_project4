@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Cr💩ppy Movie Generator</h1>
+    <div class="wrapper flex">
+        <form action="">
+            <h2>Find something to watch:</h2>
+            <ul>
+                <li>
+                    <label for="genreSelector">Genre</label>
+                    <select name="genreSelector" id="genreSelector" required>
+                        <!-- <option value="Random">Random</option> -->
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="">How crappy?</label>
+                    
+                    <label for="crap1" class="crap">💩</label>
+                    <input type="radio" name="howCrappy" value="0" required checked id="crap1">
+                    
+                    <label for="crap2" class="crap">💩</label>
+                    <input type="radio" name="howCrappy" value="1" required id="crap2">
+                    
+                    <label for="crap3" class="crap">💩</label>
+                    <input type="radio" name="howCrappy" value="2" required id="crap3">
+                </li>
+            </ul>
+            <input type="submit" value="Hit Me!">
+        </form>
+        <aside class="results flex">
+            <div class="posterContainer">
+                <img src="" alt="" class="moviePoster">
+            </div>
+            <div class="movieInfo">
+                <h2 class="movieTitle"></h2>
+                <p class="movieOverview"></p>
+            </div>
+        </aside>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
