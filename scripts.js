@@ -84,9 +84,13 @@ app.getMovieTrailer = (movieID) => {
             api_key: app.key
         }
     }).then(res => {
+        // if the movie has a trailer its array will not be empty
         if (res.results.length > 0) {
             res = res.results[0].key;
             console.log(res);
+            const youtubePlayer = `
+            <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/${res}"></iframe>`;
+            $('.results').append(youtubePlayer);
         }
     })
 }
