@@ -91,7 +91,6 @@ button[disabled], input[disabled] {
   cursor: default; }
 
 input[type=checkbox], input[type=radio] {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0; }
 
@@ -151,9 +150,6 @@ ul {
   padding: 0; }
 
 .flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex; }
 
 img {
@@ -166,4 +162,11 @@ form {
     display: none; }
 
 .results .posterContainer {
+  width: 30%;
   margin-right: 20px; }
+
+.results img {
+  max-height: 300px; }
+
+.results .movieInfo {
+  width: 70%; }

@@ -1,0 +1,24 @@
+{
+  "name": "barnabas_chun_project4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarnabasChun/HY_project4.git"
+  },
+  "author": "Barnabas Chun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarnabasChun/HY_project4/issues"
+  },
+  "homepage": "https://github.com/BarnabasChun/HY_project4#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

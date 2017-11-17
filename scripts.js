@@ -3,15 +3,11 @@ const app = {};
 app.key = '12c98fa8845c6c9678471fabe9bb1643';
 app.baseUrl = 'https://api.themoviedb.org/3';
 
-//GOAL: The user will be returned a movie based on their selection of: 1) genre, decade, and level of crappy
-
-// returns the first index of an array
-app.firstIndex = arr => arr[0];
-
 app.requestData = {
     genreID: null,
     minRating: null,
     maxRating: null,
+    movieID: null,
 };
 
 app.randomInArray = (arr) => {
@@ -39,14 +35,16 @@ app.getMovieData = (genreID, minRating, maxRating) => {
         const randomMovie = app.randomInArray(app.MovieInfo);
         $('.movieTitle').text(`${randomMovie.title}`);
         $('.movieOverview').text(`${randomMovie.overview}`);
-        $('.moviePoster').attr('src', `https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`)
+        $('.moviePoster').attr('src', `https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`);
+        app.movieID = randomMovie.id;
+        app.getMovieTrailer(app.movieID);
     })
 };
 
 app.genreSelector = () => {
     const genre = $('#genreSelector').val();
     $.ajax({
-        url: `${app.baseUrl}/genre/movie/list?api_key=12c98fa8845c6c9678471fabe9bb1643&language=en-US`,
+        url: `${app.baseUrl}/genre/movie/list`,
         method: 'GET',
         dataType: 'json',
         data: {
@@ -68,7 +66,6 @@ app.genreSelector = () => {
 
 app.ratingSelector = () => {
     const rating = $(`input[type='radio']:checked`).val();
-
     let ratingRanges = [
         {max: 6, min: 4},
         {max: 3.99, min: 2.501},
@@ -76,6 +73,22 @@ app.ratingSelector = () => {
     ];
     app.requestData.minRating = ratingRanges[rating].min;
     app.requestData.maxRating = ratingRanges[rating].max;
+}
+
+app.getMovieTrailer = (movieID) => {
+    $.ajax({
+        url: `${app.baseUrl}/movie/${movieID}/videos`,
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            api_key: app.key
+        }
+    }).then(res => {
+        if (res.results.length > 0) {
+            res = res.results[0].key;
+            console.log(res);
+        }
+    })
 }
 
 app.getMovie = () => {
