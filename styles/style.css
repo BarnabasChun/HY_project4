@@ -135,7 +135,8 @@ html {
   font-size: 62.5%; }
 
 h1 {
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
 
 .wrapper {
   max-width: 940px;
@@ -160,6 +161,8 @@ form {
   font-size: 2.0rem; }
   form input[type="radio"] {
     display: none; }
+  form .ratingSelector {
+    align-items: center; }
   form .crap {
     margin: 0 5px; }
   form .rating {

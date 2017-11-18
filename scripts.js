@@ -78,12 +78,12 @@ app.getRating = () => {
 };
 
 app.ratingDisplay = () => {
-    // on mouse over of li, find the value of the radio button and use that to toggle classes 
-    $('.rating').on('click', function() {
-        // console.log('test');
+    $('.rating').on('mouseover', function() {
+        // to get the proper submitted value, set the value of the radio button hovered over to checked
+        // because if the user only hovers over it but does not click it, it will still look like it has been clicked 
+        $(this).find(':radio').attr('checked', 'checked');
         $('.ratingSelector > li ~ li').removeClass('checked');
         for (let i = $(this).find(':radio').val(); i >=1; i--) {
-            // console.log(i);
             $(`.rating:nth-of-type(${i})`).addClass('checked');
         }
     })
