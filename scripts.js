@@ -37,7 +37,7 @@ app.getMovieData = (genreID, minRating, maxRating) => {
         $('.movieOverview').text(`${randomMovie.overview}`);
         $('.moviePoster').attr('src', `https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`);
         app.movieID = randomMovie.id;
-        app.getMovieTrailer(app.movieID);
+        // app.getMovieTrailer(app.movieID);
     })
 };
 

@@ -131,20 +131,29 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-html {
-  font-size: 62.5%; }
-
-h1 {
-  text-align: center;
-  text-transform: uppercase; }
-
 .wrapper {
   max-width: 940px;
   margin: 0 auto; }
 
+body {
+  background: black;
+  color: white; }
+
+html {
+  font-size: 62.5%; }
+
+h1, h2 {
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif; }
+
+h1 {
+  text-align: center;
+  font-size: 3.6rem;
+  padding: 20px 0; }
+
 h2 {
-  font-size: 1.6rem;
-  text-transform: uppercase; }
+  font-size: 2.4rem;
+  margin: 0; }
 
 ul {
   list-style: none;
@@ -158,24 +167,45 @@ img {
   width: 100%; }
 
 form {
-  font-size: 2.0rem; }
+  font-size: 2.0rem;
+  width: calc(40% - 40px);
+  margin-right: 80px; }
   form input[type="radio"] {
     display: none; }
+  form .flex {
+    justify-content: space-between; }
+  form li {
+    margin: 5px 0; }
   form .ratingSelector {
     align-items: center; }
   form .crap {
     margin: 0 5px; }
   form .rating {
-    opacity: 0.5; }
+    opacity: 0.5;
+    justify-content: space-between; }
   form .checked {
     opacity: 1; }
+  form label, form p {
+    font-weight: 700;
+    text-transform: uppercase; }
+  form p {
+    margin: 0; }
+  form input[type="submit"] {
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    padding: 10px;
+    background: firebrick;
+    color: white; }
 
-.results .posterContainer {
-  width: 30%;
-  margin-right: 20px; }
-
-.results img {
-  max-height: 300px; }
-
-.results .movieInfo {
-  width: 70%; }
+.results {
+  width: calc(60% - 40px); }
+  .results .posterContainer {
+    width: 30%;
+    margin-right: 20px; }
+  .results img {
+    max-height: 300px; }
+  .results .movieInfo {
+    width: 70%; }
+  .results p {
+    font-size: 1.4rem; }

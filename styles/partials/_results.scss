@@ -1,5 +1,6 @@
 // results STYLES
 .results {
+    width: calc(60% - 40px);
     .posterContainer {
         width: 30%;
         margin-right: 20px;
@@ -9,5 +10,8 @@
     }
     .movieInfo {
         width: 70%;
+    }
+    p {
+        font-size: 1.4rem;
     }
 }

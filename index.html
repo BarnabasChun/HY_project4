@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 </head>
 <body>
     <h1>Sh*tty Movie Generator</h1>
@@ -13,9 +14,9 @@
         <form action="">
             <h2>Find something to watch:</h2>
             <ul>
-                <li>
-                    <label for="genreSelector">Genre</label>
-                    <select name="genreSelector" id="genreSelector" required>
+                <li class="genreSelector flex">
+                    <label for="genres">Genre</label>
+                    <select name="genres" id="genres" required>
                         <option value="Action">Action</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Comedy">Comedy</option>
@@ -24,7 +25,7 @@
                         <option value="Science Fiction">Science Fiction</option>
                     </select>
                 </li>
-                <li class="flex">
+                <li class="ratingSelector flex">
                     <p>How sh*tty?</p>
                     <ul class="ratingSelector flex">
                         <li class="rating">
