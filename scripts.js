@@ -64,16 +64,30 @@ app.genreSelector = () => {
     })
 };
 
-app.ratingSelector = () => {
+app.getRating = () => {
+    // the value of the checked radio button is used to get the corresponding max and min rating within an array to be used as a query string in the ajax request
+    // each radio button has a value corresponding to its n-th-of-type and since indices begin at 0, the index will be -1 of its value
     const rating = $(`input[type='radio']:checked`).val();
     let ratingRanges = [
         {max: 6, min: 4},
         {max: 3.99, min: 2.501},
         {max: 2.5, min: 1.00},
     ];
-    app.requestData.minRating = ratingRanges[rating].min;
-    app.requestData.maxRating = ratingRanges[rating].max;
-}
+    app.requestData.minRating = ratingRanges[rating-1].min;
+    app.requestData.maxRating = ratingRanges[rating-1].max;
+};
+
+app.ratingDisplay = () => {
+    // on mouse over of li, find the value of the radio button and use that to toggle classes 
+    $('.rating').on('click', function() {
+        // console.log('test');
+        $('.ratingSelector > li ~ li').removeClass('checked');
+        for (let i = $(this).find(':radio').val(); i >=1; i--) {
+            // console.log(i);
+            $(`.rating:nth-of-type(${i})`).addClass('checked');
+        }
+    })
+};
 
 app.getMovieTrailer = (movieID) => {
     $.ajax({
@@ -99,7 +113,7 @@ app.getMovie = () => {
     $('form').on('submit', e => {
         e.preventDefault();
         app.genreSelector();
-        app.ratingSelector();
+        app.getRating();
         app.getMovieData(app.requestData.genreID, app.requestData.minRating, app.requestData.maxRating);
     })
 }
@@ -107,6 +121,7 @@ app.getMovie = () => {
 // INTERACTIVE FUNCTIONS (i.e. on click, submits, changes)
 app.events = function(){
     app.getMovie();
+    app.ratingDisplay();
 };
 
 app.init = function(){

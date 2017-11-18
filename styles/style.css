@@ -160,6 +160,12 @@ form {
   font-size: 2.0rem; }
   form input[type="radio"] {
     display: none; }
+  form .crap {
+    margin: 0 5px; }
+  form .rating {
+    opacity: 0.5; }
+  form .checked {
+    opacity: 1; }
 
 .results .posterContainer {
   width: 30%;
