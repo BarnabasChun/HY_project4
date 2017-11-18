@@ -78,11 +78,10 @@ app.getRating = () => {
 };
 
 app.ratingDisplay = () => {
-    $('.rating').on('mouseover', function() {
-        // to get the proper submitted value, set the value of the radio button hovered over to checked
-        // because if the user only hovers over it but does not click it, it will still look like it has been clicked 
-        $(this).find(':radio').attr('checked', 'checked');
+    $('.rating').on('click', function() {
+        // remove the class of checked from following ratings
         $('.ratingSelector > li ~ li').removeClass('checked');
+        // add class of checked to previous ratings
         for (let i = $(this).find(':radio').val(); i >=1; i--) {
             $(`.rating:nth-of-type(${i})`).addClass('checked');
         }
