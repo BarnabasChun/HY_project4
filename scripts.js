@@ -111,11 +111,12 @@ app.getMovieTrailer = (movieID) => {
         // add the flickity class so the user can then click the arrow to watch the trailer
         if (res.results.length > 0) {
             res = res.results[0].key; // res = end of youtube link
-            $('.results').addClass('js-flickity');
+            $('.results').flickity({
+
+            });
             $('#ytPlayer').attr('src', `https://www.youtube.com/embed/${res}`).show('slow', 'linear');
         } else {
-            $('.results').removeClass('js-flickity');
-            $('#ytPlayer').hide('slow', 'linear');
+            $('#ytPlayer').attr('src', '').hide('slow', 'linear');
         }
     })
 }
