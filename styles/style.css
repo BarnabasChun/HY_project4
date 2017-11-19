@@ -161,7 +161,7 @@ h2 {
   margin: 0; }
 
 main {
-  padding-bottom: 40px; }
+  padding-bottom: 50px; }
   @media (max-width: 730px) {
     main {
       padding-bottom: 0; } }
@@ -253,6 +253,8 @@ form {
   @media (max-width: 470px) {
     .results {
       flex-direction: column; } }
+  .results .resultsCell {
+    width: 100%; }
   .results .posterContainer {
     width: 50%;
     margin-right: 20px; }
@@ -270,7 +272,8 @@ form {
     line-height: 1.2;
     font-family: "Source Sans Pro", sans-serif; }
   .results img {
-    width: 100%; }
+    width: 100%;
+    max-height: 375px; }
 
 footer {
   justify-content: center;

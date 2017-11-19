@@ -38,17 +38,16 @@ app.getMovieData = (genreID, minRating, maxRating) => {
         if (randomMovie.overview === "") {
             $('.movieOverview').text('No description.');
         } else {
+            // if the length of the description is greater than 280 characters, only get the first 280 and add elipses on the end
             if (randomMovie.overview.length > 280) {
                 randomMovie.overview = randomMovie.overview.slice(0, 280).concat('...');
             }
             $('.movieOverview').text(`${randomMovie.overview}`);
-            // console.log(randomMovie.overview.length);
-            // if the length of the description is greater than 350 characters
         }
 
         $('.moviePoster').attr('src', `https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`);
         app.movieID = randomMovie.id;
-        // app.getMovieTrailer(app.movieID);
+        app.getMovieTrailer(app.movieID);
     })
 };
 
@@ -98,6 +97,7 @@ app.ratingDisplay = () => {
     })
 };
 
+// using the movie ID retrieved as randomMovie.id, an object containing a key related to a youtube link is returned
 app.getMovieTrailer = (movieID) => {
     $.ajax({
         url: `${app.baseUrl}/movie/${movieID}/videos`,
@@ -107,13 +107,12 @@ app.getMovieTrailer = (movieID) => {
             api_key: app.key
         }
     }).then(res => {
-        // if the movie has a trailer its array will not be empty
+        // if the movie has a trailer the array will not be empty, so in this case get the link key and insert it into the source of the iframe then show the iframe
+        // **need to hide the iframe before submission!!
+        console.log(res);
         if (res.results.length > 0) {
             res = res.results[0].key;
-            console.log(res);
-            const youtubePlayer = `
-            <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/${res}"></iframe>`;
-            $('.results').append(youtubePlayer);
+            
         }
     })
 }
@@ -135,6 +134,10 @@ app.events = function(){
 
 app.init = function(){
     app.events();
+    // $('.results').flickity({
+
+    // });
 };
+
 
 $(app.init);

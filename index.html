@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sh*tty Movie Generator</title>
-    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.2/flickity.min.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
@@ -47,27 +48,36 @@
             </ul>
             <input type="submit" value="Hit Me!">
         </form>
-        <aside class="results flex">
-            <div class="posterContainer">
-                <img src="" alt="" class="moviePoster">
+        <aside class="results js-flickity">
+            <div class="resultsCell flex">
+                <div class="posterContainer">
+                    <img src="" alt="" class="moviePoster">
+                </div>
+                <div class="movieInfo">
+                    <h2 class="movieTitle"></h2>
+                    <p class="movieOverview"></p>
+                </div>
             </div>
-            <div class="movieInfo">
-                <h2 class="movieTitle"></h2>
-                <p class="movieOverview"></p>
+            <div class="resultsCell">
+                <iframe width="420" height="315" src="">
+                </iframe>
             </div>
         </aside>
     </main>
     <section class="about">
         <div class="wrapper">
             <h2>About</h2>
-            <p>This app was built for those seeking out poorly-made cinema. If you've exhausted every list of "Best Worst Movies", find Tommy Wiseau's <span>The Room</span> to be a masterpiece, or are an adamant supporter of Nicolas Cage's illustrious career, then this app will fill the void in your your life and help you indulge in your guilty pleasure of crappy movies. This app works by pulling data from TMdB's API, with movies rated poorly by their users being randomly selected, depending on your preference of genre and rating.</p>
+            <p>If you've exhausted every list of "Best Worst Movies", find Tommy Wiseau's <span>The Room</span> to be a masterpiece, or are an adamant supporter of Nicolas Cage's illustrious career, then this app will fill the void in your your life and help you indulge in your guilty pleasure of crappy movies. This app works by pulling data from TMdB's API, with movies rated poorly by their users being randomly selected, depending on your preference of genre and rating.</p>
         </div>
     </section>
     <footer class="flex">
         <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-        <img src="assets/408x161-powered-by-rectangle-green.png" alt="">
+        <a href="https://www.themoviedb.org/documentation/api">
+            <img src="assets/408x161-powered-by-rectangle-green.png" alt="">
+        </a>
     </footer>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
