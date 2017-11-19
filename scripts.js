@@ -108,11 +108,14 @@ app.getMovieTrailer = (movieID) => {
         }
     }).then(res => {
         // if the movie has a trailer the array will not be empty, so in this case get the link key and insert it into the source of the iframe then show the iframe
-        // **need to hide the iframe before submission!!
-        console.log(res);
+        // add the flickity class so the user can then click the arrow to watch the trailer
         if (res.results.length > 0) {
-            res = res.results[0].key;
-            
+            res = res.results[0].key; // res = end of youtube link
+            $('.results').addClass('js-flickity');
+            $('#ytPlayer').attr('src', `https://www.youtube.com/embed/${res}`).show('slow', 'linear');
+        } else {
+            $('.results').removeClass('js-flickity');
+            $('#ytPlayer').hide('slow', 'linear');
         }
     })
 }
@@ -134,9 +137,6 @@ app.events = function(){
 
 app.init = function(){
     app.events();
-    // $('.results').flickity({
-
-    // });
 };
 
 

@@ -255,6 +255,8 @@ form {
       flex-direction: column; } }
   .results .resultsCell {
     width: 100%; }
+  .results #ytPlayer {
+    display: none; }
   .results .posterContainer {
     width: 50%;
     margin-right: 20px; }

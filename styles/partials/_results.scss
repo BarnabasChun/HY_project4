@@ -13,6 +13,9 @@
     .resultsCell {
         width: 100%;
     }
+    #ytPlayer {
+        display: none;
+    }
     .posterContainer {
         width: 50%;
         margin-right: 20px;
@@ -21,7 +24,6 @@
             margin: 0 0 40px 0;
         }
     }
-    
     .movieInfo {
         width: 50%;
         @media (max-width: 470px) {
