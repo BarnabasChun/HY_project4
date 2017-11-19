@@ -3,20 +3,26 @@ form {
     font-size: 2.0rem;
     width: calc(40% - 40px);
     margin-right: 80px;
+    text-align: center;
+    padding: 20px 10px;
+    @media (max-width: 730px) {
+        width: 100%;
+        padding: 0 40px;
+    }
+    h2 {
+        text-align: left;
+        opacity: 0.8;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
     input[type="radio"] {
         display: none;
     }
     .flex {
         justify-content: space-between;
     }
-    li {
-        margin: 5px 0;
-    }
     .ratingSelector {
         align-items: center;
-    }
-    .crap {
-        margin: 0 5px;
     }
     .rating {
         opacity: 0.5;
@@ -27,17 +33,33 @@ form {
     }
     label, p {
         font-weight: 700;
+        font-size: 1.8rem;
         text-transform: uppercase;
+        opacity: 0.8;
+    }
+    li {
+        margin: 5px 0;
+    }
+    .crap {
+        font-size: 2.4rem;
+        opacity: 1;
     }
     p {
         margin: 0;
     }
+    select {
+        color: black;
+    }
     input[type="submit"] {
-        width: 100%;
+        width: 80%;
         border-radius: 25px;
         border: none;
         padding: 10px;
         background: firebrick;
-        color: white;   
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+        margin-top: 40px;
     }
 }

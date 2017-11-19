@@ -1,11 +1,14 @@
 // GLOBAL STYLES
-
 .wrapper {
-    max-width: 940px;
+    max-width: 1080px;
     margin: 0 auto;
+    @media (max-width: 730px) {
+        flex-direction: column;
+    }
 }
 
 body {
+    font-family: $primaryFont;
     background: black;
     color: white;
 }
@@ -16,18 +19,26 @@ html {
 
 h1, h2 {
     text-transform: uppercase;
-    font-family: $primaryFont;
 }
 
 h1 {
     text-align: center;
     font-size: 3.6rem;
-    padding: 20px 0;
+    padding-top: 60px;
+    margin-bottom: 40px;
+    color: firebrick;
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     margin: 0;
+}
+
+main {
+    padding-bottom: 40px;
+    @media (max-width: 730px) {
+        padding-bottom: 0;
+    }
 }
 
 ul {
@@ -41,5 +52,4 @@ ul {
 
 img {
     display: block;
-    width: 100%;
 }

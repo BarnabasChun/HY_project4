@@ -1,0 +1,17 @@
+.about {
+    color: black;
+    background: white;
+    padding: 60px 40px;
+    font-family: $secondaryFont;
+    h2 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+    span {
+        font-style: italic;
+    }
+}

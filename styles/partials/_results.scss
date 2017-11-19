@@ -1,17 +1,36 @@
 // results STYLES
 .results {
     width: calc(60% - 40px);
+    padding: 20px;
+    @media (max-width: 730px) {
+        padding: 0 40px;
+        width: 100%;
+        margin: 40px 0;
+    }
+    @media (max-width: 470px) {
+        flex-direction: column;
+    }
     .posterContainer {
-        width: 30%;
+        width: 50%;
         margin-right: 20px;
+        @media (max-width: 470px) {
+            width: 100%;
+            margin: 0 0 40px 0;
+        }
     }
-    img {
-        max-height: 300px;
-    }
+    
     .movieInfo {
-        width: 70%;
+        width: 50%;
+        @media (max-width: 470px) {
+            width: 100%;
+        }
     }
     p {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        font-family: $secondaryFont;
+    }
+    img {
+        width: 100%;
     }
 }

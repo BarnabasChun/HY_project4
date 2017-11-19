@@ -132,10 +132,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 .wrapper {
-  max-width: 940px;
+  max-width: 1080px;
   margin: 0 auto; }
+  @media (max-width: 730px) {
+    .wrapper {
+      flex-direction: column; } }
 
 body {
+  font-family: "Roboto", sans-serif;
   background: black;
   color: white; }
 
@@ -143,17 +147,24 @@ html {
   font-size: 62.5%; }
 
 h1, h2 {
-  text-transform: uppercase;
-  font-family: "Roboto", sans-serif; }
+  text-transform: uppercase; }
 
 h1 {
   text-align: center;
   font-size: 3.6rem;
-  padding: 20px 0; }
+  padding-top: 60px;
+  margin-bottom: 40px;
+  color: firebrick; }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   margin: 0; }
+
+main {
+  padding-bottom: 40px; }
+  @media (max-width: 730px) {
+    main {
+      padding-bottom: 0; } }
 
 ul {
   list-style: none;
@@ -163,23 +174,43 @@ ul {
   display: flex; }
 
 img {
-  display: block;
-  width: 100%; }
+  display: block; }
+
+.about {
+  color: black;
+  background: white;
+  padding: 60px 40px;
+  font-family: "Source Sans Pro", sans-serif; }
+  .about h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px; }
+  .about p {
+    font-size: 1.8rem;
+    line-height: 1.5; }
+  .about span {
+    font-style: italic; }
 
 form {
   font-size: 2.0rem;
   width: calc(40% - 40px);
-  margin-right: 80px; }
+  margin-right: 80px;
+  text-align: center;
+  padding: 20px 10px; }
+  @media (max-width: 730px) {
+    form {
+      width: 100%;
+      padding: 0 40px; } }
+  form h2 {
+    text-align: left;
+    opacity: 0.8;
+    font-size: 1.6rem;
+    margin-bottom: 30px; }
   form input[type="radio"] {
     display: none; }
   form .flex {
     justify-content: space-between; }
-  form li {
-    margin: 5px 0; }
   form .ratingSelector {
     align-items: center; }
-  form .crap {
-    margin: 0 5px; }
   form .rating {
     opacity: 0.5;
     justify-content: space-between; }
@@ -187,25 +218,67 @@ form {
     opacity: 1; }
   form label, form p {
     font-weight: 700;
-    text-transform: uppercase; }
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    opacity: 0.8; }
+  form li {
+    margin: 5px 0; }
+  form .crap {
+    font-size: 2.4rem;
+    opacity: 1; }
   form p {
     margin: 0; }
+  form select {
+    color: black; }
   form input[type="submit"] {
-    width: 100%;
+    width: 80%;
     border-radius: 25px;
     border: none;
     padding: 10px;
     background: firebrick;
-    color: white; }
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 40px; }
 
 .results {
-  width: calc(60% - 40px); }
+  width: calc(60% - 40px);
+  padding: 20px; }
+  @media (max-width: 730px) {
+    .results {
+      padding: 0 40px;
+      width: 100%;
+      margin: 40px 0; } }
+  @media (max-width: 470px) {
+    .results {
+      flex-direction: column; } }
   .results .posterContainer {
-    width: 30%;
+    width: 50%;
     margin-right: 20px; }
-  .results img {
-    max-height: 300px; }
+    @media (max-width: 470px) {
+      .results .posterContainer {
+        width: 100%;
+        margin: 0 0 40px 0; } }
   .results .movieInfo {
-    width: 70%; }
+    width: 50%; }
+    @media (max-width: 470px) {
+      .results .movieInfo {
+        width: 100%; } }
   .results p {
-    font-size: 1.4rem; }
+    font-size: 1.8rem;
+    line-height: 1.2;
+    font-family: "Source Sans Pro", sans-serif; }
+  .results img {
+    width: 100%; }
+
+footer {
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  font-family: "Source Sans Pro", sans-serif; }
+  footer p {
+    margin-right: 10px; }
+  footer img {
+    max-width: 100%;
+    max-height: 30px; }

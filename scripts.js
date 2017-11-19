@@ -23,6 +23,7 @@ app.getMovieData = (genreID, minRating, maxRating) => {
         data: {
             api_key: app.key,
             sort_by: 'vote_average.asc',
+            certification_country: 'US',
             'certification.lte': 'PG-13', // to prevent return of adult movies
             'vote_count.gte': 10,// to avoid completely obscure films
             with_genres: genreID,
@@ -30,11 +31,21 @@ app.getMovieData = (genreID, minRating, maxRating) => {
             'vote_average.gte': minRating,
         },
     }).then(res => {
-        console.log(res);
         app.MovieInfo = res.results;
         const randomMovie = app.randomInArray(app.MovieInfo);
         $('.movieTitle').text(`${randomMovie.title}`);
-        $('.movieOverview').text(`${randomMovie.overview}`);
+        
+        if (randomMovie.overview === "") {
+            $('.movieOverview').text('No description.');
+        } else {
+            if (randomMovie.overview.length > 280) {
+                randomMovie.overview = randomMovie.overview.slice(0, 280).concat('...');
+            }
+            $('.movieOverview').text(`${randomMovie.overview}`);
+            // console.log(randomMovie.overview.length);
+            // if the length of the description is greater than 350 characters
+        }
+
         $('.moviePoster').attr('src', `https://image.tmdb.org/t/p/w500/${randomMovie.poster_path}`);
         app.movieID = randomMovie.id;
         // app.getMovieTrailer(app.movieID);
@@ -42,7 +53,7 @@ app.getMovieData = (genreID, minRating, maxRating) => {
 };
 
 app.genreSelector = () => {
-    const genre = $('#genreSelector').val();
+    const genre = $('#genres').val();
     $.ajax({
         url: `${app.baseUrl}/genre/movie/list`,
         method: 'GET',
@@ -54,7 +65,6 @@ app.genreSelector = () => {
         // receive an object containing the data but you only want the genres property
         // therefore, re-assign the object to equal the genres property, which is an array of genres with a genre id and genre name
         genreData = genreData.genres;
-        // console.log(genreData);
         // run through the genreData array containing genre objects and check if the property of name matches the genre value from the input, if so, return the value of the property id
         for (let i = 0; i < genreData.length; i++) {
             if (genreData[i].name === genre) {

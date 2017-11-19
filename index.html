@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sh*tty Movie Generator</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-    <h1>Sh*tty Movie Generator</h1>
-    <div class="wrapper flex">
+    <header>
+        <h1>Sh*tty Movie Generator</h1>
+    </header>
+    <main class="wrapper flex">
         <form action="">
             <h2>Find something to watch:</h2>
             <ul>
@@ -28,7 +30,7 @@
                 <li class="ratingSelector flex">
                     <p>How sh*tty?</p>
                     <ul class="ratingSelector flex">
-                        <li class="rating">
+                        <li class="rating checked">
                             <label for="crap1" class="crap">💩</label>
                             <input type="radio" name="howCrappy" value="1" required checked id="crap1">
                         </li>
@@ -54,7 +56,17 @@
                 <p class="movieOverview"></p>
             </div>
         </aside>
-    </div>
+    </main>
+    <section class="about">
+        <div class="wrapper">
+            <h2>About</h2>
+            <p>This app was built for those seeking out poorly-made cinema. If you've exhausted every list of "Best Worst Movies", find Tommy Wiseau's <span>The Room</span> to be a masterpiece, or are an adamant supporter of Nicolas Cage's illustrious career, then this app will fill the void in your your life and help you indulge in your guilty pleasure of crappy movies. This app works by pulling data from TMdB's API, with movies rated poorly by their users being randomly selected, depending on your preference of genre and rating.</p>
+        </div>
+    </section>
+    <footer class="flex">
+        <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+        <img src="assets/408x161-powered-by-rectangle-green.png" alt="">
+    </footer>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
     <script src="scripts.js"></script>
 </body>
