@@ -34,6 +34,7 @@ app.getMovieData = (genreID, minRating, maxRating) => {
         app.MovieInfo = res.results;
         const randomMovie = app.randomInArray(app.MovieInfo);
         $('.movieTitle').text(`${randomMovie.title}`);
+        app.getImbdRating(randomMovie.title.replace(/\s/g, "+"));
         
         if (randomMovie.overview === "") {
             $('.movieOverview').text('No description.');
@@ -108,18 +109,42 @@ app.getMovieTrailer = (movieID) => {
         }
     }).then(res => {
         // if the movie has a trailer the array will not be empty, so in this case get the link key and insert it into the source of the iframe then show the iframe
-        // add the flickity class so the user can then click the arrow to watch the trailer
+        // add the flickity class so the user can then click the arrow to watch the trailer and empty the no trailer text (if necessary) because a trailer was found
         if (res.results.length > 0) {
             res = res.results[0].key; // res = end of youtube link
             $('.results').flickity({
-
+                freeScroll: true,
+                wrapAround: true,
+                freeScrollFriction: 0.03,
             });
+            $('.noTrailer').text('');
             $('#ytPlayer').attr('src', `https://www.youtube.com/embed/${res}`).show('slow', 'linear');
         } else {
             $('#ytPlayer').attr('src', '').hide('slow', 'linear');
+            $('.noTrailer').text('No trailer found. Sorry :(');
         }
     })
 }
+
+// pass in movieTitle placeholder which's value will be found in the tmdb ajax request
+app.getImbdRating = (movieTitle) => {
+    $.ajax({
+        url: `http://www.omdbapi.com/?t=${movieTitle}`,
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            apikey: '60f716e0'
+        }
+    }).then(res =>{
+        res = res.Ratings[0];
+        if (res === undefined) {
+            $('.IMDbRating').html(`<span>IMDbRating :</span> N/A`);
+        } else {
+            $('.IMDbRating').html(`<span>IMDbRating :</span> ${res.Value}`);
+            // $('.IMDbRating').text(`IMDbRating:  ${res.Value}`);
+        }
+    })
+};
 
 app.getMovie = () => {
     $('form').on('submit', e => {
@@ -139,6 +164,5 @@ app.events = function(){
 app.init = function(){
     app.events();
 };
-
 
 $(app.init);
