@@ -40,8 +40,8 @@ app.getMovieData = (genreID, minRating, maxRating) => {
             $('.movieOverview').text('No description.');
         } else {
             // if the length of the description is greater than 280 characters, only get the first 280 and add elipses on the end
-            if (randomMovie.overview.length > 280) {
-                randomMovie.overview = randomMovie.overview.slice(0, 280).concat('...');
+            if (randomMovie.overview.length > 200) {
+                randomMovie.overview = randomMovie.overview.slice(0, 200).concat('...');
             }
             $('.movieOverview').text(`${randomMovie.overview}`);
         }
@@ -111,14 +111,14 @@ app.getMovieTrailer = (movieID) => {
         // if the movie has a trailer the array will not be empty, so in this case get the link key and insert it into the source of the iframe then show the iframe
         // add the flickity class so the user can then click the arrow to watch the trailer and empty the no trailer text (if necessary) because a trailer was found
         if (res.results.length > 0) {
-            res = res.results[0].key; // res = end of youtube link
+            const ytLink = res.results[0].key; // res = end of youtube link
             $('.results').flickity({
                 freeScroll: true,
                 wrapAround: true,
                 freeScrollFriction: 0.03,
             });
             $('.noTrailer').text('');
-            $('#ytPlayer').attr('src', `https://www.youtube.com/embed/${res}`).show('slow', 'linear');
+            $('#ytPlayer').attr('src', `https://www.youtube.com/embed/${ytLink}`).show('slow', 'linear');
         } else {
             $('#ytPlayer').attr('src', '').hide('slow', 'linear');
             $('.noTrailer').text('No trailer found. Sorry :(');
@@ -136,13 +136,15 @@ app.getImbdRating = (movieTitle) => {
             apikey: '60f716e0'
         }
     }).then(res =>{
-        res = res.Ratings[0];
-        if (res === undefined) {
-            $('.IMDbRating').html(`<span>IMDbRating :</span> N/A`);
+        const rating = res.Ratings[0];
+        if (rating === undefined) {
+            $('.IMDbRating').html(`<span>IMDB :</span> N/A`);
         } else {
-            $('.IMDbRating').html(`<span>IMDbRating :</span> ${res.Value}`);
+            $('.IMDbRating').html(`<span>IMDB :</span> ${rating.Value}`);
             // $('.IMDbRating').text(`IMDbRating:  ${res.Value}`);
         }
+        const genreValues = res.Genre;
+        $('.genres').text(genreValues);
     })
 };
 
