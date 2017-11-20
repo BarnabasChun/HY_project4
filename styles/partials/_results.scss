@@ -2,10 +2,12 @@
 .results {
     width: calc(60% - 40px);
     padding: 20px;
+    max-height: 470px;
     @media (max-width: 730px) {
         padding: 0 40px;
         width: 100%;
         margin: 40px 0;
+        max-height: none;
     }
     .resultsCell {
         width: 100%;

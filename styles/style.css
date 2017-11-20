@@ -161,7 +161,7 @@ h2 {
   margin: 0; }
 
 main {
-  padding-bottom: 50px; }
+  padding-bottom: 75px; }
   @media (max-width: 730px) {
     main {
       padding-bottom: 0; } }
@@ -244,12 +244,14 @@ form {
 
 .results {
   width: calc(60% - 40px);
-  padding: 20px; }
+  padding: 20px;
+  max-height: 470px; }
   @media (max-width: 730px) {
     .results {
       padding: 0 40px;
       width: 100%;
-      margin: 40px 0; } }
+      margin: 40px 0;
+      max-height: none; } }
   .results .resultsCell {
     width: 100%; }
   .results #ytPlayer {
